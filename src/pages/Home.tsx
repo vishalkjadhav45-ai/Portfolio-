@@ -98,22 +98,31 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Professional portrait */}
+          {/* Premium Modern Profile Portrait Card */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="relative mx-auto md:mx-0 w-64 sm:w-72 md:w-full max-w-sm"
+            className="relative mx-auto md:mx-0 w-[275px] sm:w-[310px] md:w-full max-w-[360px]"
           >
+            {/* Soft, low-intensity ambient background glow (reduced intensity ~50%) */}
             <div
-              className="absolute -inset-4 rounded-2xl -z-10 opacity-60"
-              style={{ background: 'linear-gradient(135deg, var(--color-azure-dim), transparent 60%)' }}
+              className="absolute -inset-2 rounded-3xl -z-10 blur-xl opacity-25 pointer-events-none"
+              style={{ background: 'radial-gradient(circle at 50% 30%, rgba(61, 123, 245, 0.4), transparent 70%)' }}
             />
-            <div className="glass rounded-2xl p-2.5">
+
+            {/* Single clean card with minimal padding and subtle glass styling */}
+            <div
+              className="rounded-3xl p-1.5 overflow-hidden backdrop-blur-md bg-white/[0.02]"
+              style={{
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 30px -10px rgba(61, 123, 245, 0.12)',
+              }}
+            >
               <img
                 src={portrait}
                 alt="Portrait of Vishal Jadhav, DevOps and Cloud Engineer"
-                className="w-full aspect-[4/5] object-cover rounded-xl"
+                className="w-full aspect-[4/5] object-cover rounded-[20px]"
               />
             </div>
           </motion.div>
