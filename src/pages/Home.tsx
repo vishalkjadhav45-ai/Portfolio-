@@ -12,6 +12,8 @@ import {
 import PageTransition from '../components/PageTransition';
 import { Reveal, GlassCard } from '../components/GlassCard';
 import SectionHeading from '../components/SectionHeading';
+
+// Original background watermark portrait image import
 import portrait from '../assets/vishal-portrait.jpg';
 
 const techStrip = ['Linux', 'Git', 'GitHub', 'Docker', 'Kubernetes', 'AWS', 'NGINX', 'Jenkins', 'Ansible'];
@@ -72,7 +74,7 @@ function InteractiveTerminalCard() {
   const [isCompleted, setIsCompleted] = useState(false);
 
   useEffect(() => {
-    // ReturnType<typeof setTimeout> prevents the "Cannot find namespace NodeJS" error during build
+    // ReturnType<typeof setTimeout> prevents NodeJS namespace error during build
     let timeout: ReturnType<typeof setTimeout>;
 
     if (isCompleted) {
@@ -120,7 +122,7 @@ function InteractiveTerminalCard() {
       transition={{ duration: 0.6 }}
       className="relative mx-auto md:mx-0 w-full max-w-lg"
     >
-      {/* Soft Ambient Radial Lighting */}
+      {/* Soft Ambient Radial Glow Behind Terminal */}
       <div
         className="absolute -inset-3 rounded-3xl -z-10 blur-2xl opacity-20 pointer-events-none"
         style={{ background: 'radial-gradient(circle at 50% 50%, rgba(61, 123, 245, 0.4), transparent 70%)' }}
@@ -187,7 +189,7 @@ function InteractiveTerminalCard() {
           </AnimatePresence>
         </div>
 
-        {/* Bottom Interactive Pipeline Progress Bar */}
+        {/* Bottom Pipeline Status Bar */}
         <div className="px-4 py-3 bg-white/[0.015] border-t border-white/5 grid grid-cols-5 gap-1 select-none">
           {stages.map((stage, idx) => {
             const Icon = stage.icon;
@@ -219,9 +221,9 @@ function InteractiveTerminalCard() {
 export default function Home() {
   return (
     <PageTransition>
-      {/* Hero */}
+      {/* Hero Section */}
       <section className="relative overflow-hidden pt-40 pb-28 md:pt-48 md:pb-36">
-        {/* Faded grayscale background portrait */}
+        {/* Original Faded Grayscale Background Portrait Watermark */}
         <div className="pointer-events-none absolute inset-0 -z-10 flex justify-end items-start select-none">
           <img
             src={portrait}
@@ -237,6 +239,7 @@ export default function Home() {
             }}
           />
         </div>
+        
         <div
           className="pointer-events-none absolute inset-0 -z-10"
           style={{ background: 'radial-gradient(ellipse 900px 500px at 15% 20%, rgba(61,123,245,0.08), transparent 60%)' }}
@@ -300,7 +303,7 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Dynamic Interactive Terminal Pipeline Component */}
+          {/* Interactive Terminal placed where the old framed portrait was */}
           <InteractiveTerminalCard />
         </div>
 
